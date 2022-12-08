@@ -1,5 +1,6 @@
 const request = require('supertest')
 const app = require('../../app')
+const { loadPlanetsData } = require('../../model/planets.model')
 const { mongoConnect, mongooseDisconnect } = require('../../services/mongo')
 
 
@@ -7,6 +8,7 @@ describe('LAUNCH API', ()=>{
 
     beforeAll(async()=>{
         await mongoConnect()
+        await loadPlanetsData()
     })
 
     afterAll(async ()=>{
